@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native';
 
 import { styles } from './styles';
 
@@ -65,18 +65,22 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Meio que um foreach */}
-        {
-          participants.map(participant => (
-            <Participant 
-              key={participant.name}
-              name={participant.name}
-              onRemove={() => handleParticipantRemove(participant.name)}
-            />
-          ))
-        }
-      </ScrollView>
+      <FlatList
+        data={participants}
+        keyExtractor={item => item.name}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyList}>
+            Nenhum participante cadastrado
+          </Text>
+        )}
+        renderItem={({ item }) => (
+          <Participant
+            name={item.name}
+            onRemove={() => handleParticipantRemove(item.name)}
+          />
+        )}
+      />
 
     </View>
   )
