@@ -1,11 +1,12 @@
-import { Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 
 import { styles } from './styles';
 
 import { Participant } from '../../../components/Participant';
 
 export default function Home() {
-  const participants = [
+  const [participants, setParticipants] = useState([
     { name: 'Ygor' },
     { name: 'Diego' },
     { name: 'Mayk' },
@@ -27,15 +28,37 @@ export default function Home() {
     { name: 'Mariana' },
     { name: 'Juliana' },
     { name: 'Camila' },
-    { name: 'Carla' },    
-  ]
+    { name: 'Carla' },
+  ]);
 
   function handleParticipantAdd() {
-    console.log('Adicionar participante');
+    if (participants.find(participant => participant.name === 'Ygor')) {
+      return Alert.alert("Participante já cadastrado", "Já existe um participante com esse nome (=^.^=)");
+    }
+    console.log('Adicionar participante:');
   }
 
+
   function handleParticipantRemove(name: string) {
-    console.log(`Remover participante: ${name}`);
+    Alert.alert(
+      'Remover participante',
+      `Deseja remover o participante ${name}?`,
+      [
+        {
+          text: 'Sim',
+          onPress: () => {
+            setParticipants(prevParticipants => prevParticipants.filter(participant => participant.name !== name));
+            console.log('Deletado');
+          }
+        },
+        {
+          text: 'Não',
+          onPress: () => console.log('Cancelado'),
+          style: 'cancel'
+        }
+      ]
+    )
+    console.log(`Removido o participante: ${name}`);
   }
 
   return (
@@ -53,12 +76,12 @@ export default function Home() {
           placeholder='Nome do Participante'
           placeholderTextColor='#6b6b6b'
           keyboardType='default'
-          />
+        />
 
         <TouchableOpacity
           style={styles.button}
           onPress={handleParticipantAdd}
-          >
+        >
           <Text style={styles.buttonText}>
             +
           </Text>

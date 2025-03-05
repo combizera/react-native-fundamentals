@@ -1,50 +1,35 @@
-# Welcome to your Expo app 👋
+# React Native - Estudos
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este repositório documenta meus estudos sobre React Native, incluindo conceitos fundamentais, diferenças entre componentes e padrões de desenvolvimento.
 
-## Get started
+## Introdução ao React Native
 
-1. Install dependencies
+React Native é um framework desenvolvido pelo Facebook que permite a criação de aplicações móveis usando JavaScript e React. Ele possibilita o desenvolvimento de apps nativos para iOS e Android compartilhando grande parte do código entre as plataformas.
 
-   ```bash
-   npm install
-   ```
+## Componentização
 
-2. Start the app
+Componentização é um dos princípios fundamentais do React Native. Podemos compará-la a blocos de Lego ou a um quebra-cabeça:
 
-   ```bash
-    npx expo start
-   ```
+- No quebra-cabeça, cada peça é planejada para ocupar uma posição específica, assim como componentes que têm funções específicas e são criados para serem utilizados em um contexto definido.
+- No Lego, existem peças que podem ser reaproveitadas em diferentes construções, assim como componentes reutilizáveis que podem ser utilizados em várias partes do aplicativo.
 
-In the output, you'll find options to open the app in a
+Um exemplo desse conceito no React Native é um botão personalizado. Podemos criar um componente **Button**, que pode ser reutilizado com diferentes estilos e comportamentos, mas também podemos ter um **Header**, que é projetado para ocupar um espaço específico na tela.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Outra analogia é a de um carro. O pneu é um componente do carro, mas ele também é formado por diversos outros elementos, como a borracha e o aro. No React Native, um exemplo semelhante seria um **Card de Produto** em um e-commerce. Ele pode ser um componente reutilizável, mas dentro dele podem existir outros componentes menores, como uma imagem, um título e um botão de compra.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Essa abordagem facilita a manutenção e escalabilidade do código, garantindo que cada parte do sistema seja modular e reutilizável.
 
-## Get a fresh project
+## Diferença entre ScrollView e FlatList
 
-When you're ready, run:
+- **ScrollView**: é utilizado para exibir uma lista de elementos quando a quantidade de itens é pequena e pode ser carregada inteiramente na memória. Ele renderiza todos os elementos de uma vez, o que pode impactar a performance em listas longas.
+- **FlatList**: é otimizado para exibir listas grandes, carregando os elementos sob demanda, à medida que o usuário rola a tela. Isso melhora a performance e o uso de memória.
 
-```bash
-npm run reset-project
-```
+## Tópicos Futuros
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **Navegação entre telas**
+- **Gerenciamento de estado**
+- **Hooks no React Native**
+- **Estilização com Styled Components e StyleSheet**
+- **Integração com APIs**
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
