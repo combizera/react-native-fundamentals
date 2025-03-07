@@ -3,7 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-
 
 import { styles } from './styles';
 
-import { Participant } from '../../../components/Participant';
+import { Participant } from '@/components/Participant';
 
 export default function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
@@ -15,6 +15,7 @@ export default function Home() {
     }
 
     setParticipants(prevState => [...prevState, participantName]);
+    setParticipantName('');
   }
 
   function handleParticipantRemove(name: string) {
@@ -33,7 +34,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
-        Hello World!
+        Sistema de Eventos fodaaaaaaas!
       </Text>
       <Text style={styles.eventDescription}>
         Hello React!
@@ -47,6 +48,7 @@ export default function Home() {
           keyboardType='default'
           // onChangeText={e => console.log(e)}
           onChangeText={text => setParticipantName(text)}
+          value={participantName}
         />
 
         <TouchableOpacity
