@@ -33,3 +33,9 @@ Essa abordagem facilita a manutenção e escalabilidade do código, garantindo q
 - **Integração com APIs**
 
 ---
+
+## Hooks
+
+---
+
+## Imutabilidade

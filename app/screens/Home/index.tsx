@@ -6,59 +6,27 @@ import { styles } from './styles';
 import { Participant } from '../../../components/Participant';
 
 export default function Home() {
-  const [participants, setParticipants] = useState([
-    { name: 'Ygor' },
-    { name: 'Diego' },
-    { name: 'Mayk' },
-    { name: 'Robson' },
-    { name: 'Cleiton' },
-    { name: 'Dani' },
-    { name: 'Rafael' },
-    { name: 'Guilherme' },
-    { name: 'Vinicius' },
-    { name: 'Pedro' },
-    { name: 'Lucas' },
-    { name: 'Fernando' },
-    { name: 'João' },
-    { name: 'Carlos' },
-    { name: 'José' },
-    { name: 'Maria' },
-    { name: 'Ana' },
-    { name: 'Paula' },
-    { name: 'Mariana' },
-    { name: 'Juliana' },
-    { name: 'Camila' },
-    { name: 'Carla' },
-  ]);
+  const [participants, setParticipants] = useState(['João', 'Maria']);
 
   function handleParticipantAdd() {
-    if (participants.find(participant => participant.name === 'Ygor')) {
+    if (participants.includes('Anad')) {
       return Alert.alert("Participante já cadastrado", "Já existe um participante com esse nome (=^.^=)");
     }
-    console.log('Adicionar participante:');
+
+    setParticipants(prevState => [...prevState, 'Ana']);
   }
 
-
   function handleParticipantRemove(name: string) {
-    Alert.alert(
-      'Remover participante',
-      `Deseja remover o participante ${name}?`,
-      [
-        {
-          text: 'Sim',
-          onPress: () => {
-            setParticipants(prevParticipants => prevParticipants.filter(participant => participant.name !== name));
-            console.log('Deletado');
-          }
-        },
-        {
-          text: 'Não',
-          onPress: () => console.log('Cancelado'),
-          style: 'cancel'
-        }
-      ]
-    )
-    console.log(`Removido o participante: ${name}`);
+    Alert.alert("Remover", `Remover o participante ${name}?`, [
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert("Deletado!")
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
   }
 
   return (
@@ -90,21 +58,21 @@ export default function Home() {
 
       <FlatList
         data={participants}
-        keyExtractor={item => item.name}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
+          <Participant
+            key={item}
+            name={item}
+            onRemove={() => handleParticipantRemove(item)}
+          />
+        )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.emptyList}>
-            Nenhum participante cadastrado
+            Ninguém chegou no evento ainda? Adicione participantes a sua lista de presença.
           </Text>
         )}
-        renderItem={({ item }) => (
-          <Participant
-            name={item.name}
-            onRemove={() => handleParticipantRemove(item.name)}
-          />
-        )}
       />
-
     </View>
   )
 }
