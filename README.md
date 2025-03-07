@@ -39,3 +39,16 @@ Essa abordagem facilita a manutenção e escalabilidade do código, garantindo q
 ---
 
 ## Imutabilidade
+
+---
+
+## Render
+Analogia com componentes como cozinheiros, react como garçom e cliente como cliente mesmo.
+
+Acionar
+Renderizar
+Comprometer-se
+
+2 formas de um componente renderizar:
+1. Quando é a rendeerização inicial de um componente (escreva um pouco mais)
+2. O componente é atualizado (escreva um pouco mais)

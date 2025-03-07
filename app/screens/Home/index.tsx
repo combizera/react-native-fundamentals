@@ -19,16 +19,22 @@ export default function Home() {
   }
 
   function handleParticipantRemove(name: string) {
+
     Alert.alert("Remover", `Remover o participante ${name}?`, [
-      {
-        text: 'Sim',
-        onPress: () => Alert.alert("Deletado!")
-      },
       {
         text: 'Não',
         style: 'cancel'
+      },
+      {
+        text: 'Sim',
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name)),
       }
     ])
+  }
+
+  function handleState(value: string) {
+    setParticipantName(value);
+    console.log(participantName);
   }
 
   return (
@@ -47,7 +53,7 @@ export default function Home() {
           placeholderTextColor='#6b6b6b'
           keyboardType='default'
           // onChangeText={e => console.log(e)}
-          onChangeText={text => setParticipantName(text)}
+          onChangeText={handleState}
           value={participantName}
         />
 
