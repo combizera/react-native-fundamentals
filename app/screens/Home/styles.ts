@@ -7,11 +7,15 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    width: '100%',
+    paddingHorizontal: 20,
+  },
   eventName: {
     color: '#fdfcfe',
     fontSize: 24,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: 80,
   },
   eventDescription: {
     color: '#6b6b6b',

@@ -39,12 +39,17 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>
-        Sistema de Eventos fodaaaaaaas!
-      </Text>
-      <Text style={styles.eventDescription}>
-        Hello React!
-      </Text>
+      <View style={styles.title}>
+        <Text style={styles.eventName}>
+          Sistema de Eventos foda!
+        </Text>
+        <Text style={styles.eventDescription}>
+          03/04/1999 - 10:00h
+        </Text>
+        <Text style={styles.eventDescription}>
+          Nasce um anjo
+        </Text>
+      </View>
 
       <View style={styles.form}>
         <TextInput
